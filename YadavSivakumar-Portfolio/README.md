@@ -1,6 +1,17 @@
-# MyPortfolio
+# YadavSivakumar-Portfolio
 
 This is a personal portfolio website for Yadav Sivakumar, created using HTML, CSS, and JavaScript.
+
+## Features
+
+- Animated tech background using `particles.js`
+- Section fade-in/slide-up animations
+- Smooth scrolling navigation
+- Skills icons for HTML, CSS, JS
+- Hover effects on buttons and project cards
+- CV download button
+- Responsive design
+- Dark/light mode toggle
 
 ## Deployment to GitHub Pages
 
@@ -28,3 +39,5 @@ This is a personal portfolio website for Yadav Sivakumar, created using HTML, CS
    - Click "Save".
 
 Your portfolio will be live at `https://<your-username>.github.io/<your-repository-name>/` in a few minutes.
+
+**Note:** This project uses `particles.js` from a CDN, so an internet connection is required for the animated background to work.
