@@ -1,32 +1,55 @@
-/* Dark Mode Toggle */
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-const body = document.body;
+/*
+  --- Scroll Animation Logic ---
+  * Description: Uses the Intersection Observer API to add a 'visible' class to sections when they enter the viewport.
+  * This triggers the CSS animations defined in styles.css.
+*/
 
-if (localStorage.getItem('dark-mode') === 'enabled') {
-    body.classList.add('dark-mode');
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
 
-darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('dark-mode', 'enabled');
-    } else {
-        localStorage.removeItem('dark-mode');
-    }
-});
-
-/* Smooth Scrolling */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // We can unobserve the element after it has become visible
+                observer.unobserve(entry.target);
+            }
         });
+    }, { 
+        threshold: 0.1 // Trigger when 10% of the section is visible
+    });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // --- Theme Toggle Logic ---
+    const themeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    // On page load, check for a saved theme preference
+    if (localStorage.getItem('theme') === 'light') {
+        body.classList.add('light-mode');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+
+        // Save the user's preference
+        if (body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+        } else {
+            localStorage.removeItem('theme');
+        }
     });
 });
 
-/* Particles.js Configuration */
+/* 
+  --- Particles.js Configuration ---
+  * Description: Initializes the animated background with a custom configuration.
+  * Colors are synced with the CSS variables for a cohesive theme.
+*/
+
 particlesJS('particles-js', {
     "particles": {
         "number": {
@@ -37,14 +60,14 @@ particlesJS('particles-js', {
             }
         },
         "color": {
-            "value": "#ffffff"
+            "value": "#00f7ff" // Accent Cyan
         },
         "shape": {
             "type": "circle",
         },
         "opacity": {
             "value": 0.5,
-            "random": false,
+            "random": true,
         },
         "size": {
             "value": 3,
@@ -53,13 +76,13 @@ particlesJS('particles-js', {
         "line_linked": {
             "enable": true,
             "distance": 150,
-            "color": "#ffffff",
+            "color": "#8a2be2", // Accent Purple
             "opacity": 0.4,
             "width": 1
         },
         "move": {
             "enable": true,
-            "speed": 6,
+            "speed": 2,
             "direction": "none",
             "random": false,
             "straight": false,
@@ -72,7 +95,7 @@ particlesJS('particles-js', {
         "events": {
             "onhover": {
                 "enable": true,
-                "mode": "repulse"
+                "mode": "grab"
             },
             "onclick": {
                 "enable": true,
@@ -81,9 +104,9 @@ particlesJS('particles-js', {
             "resize": true
         },
         "modes": {
-            "repulse": {
-                "distance": 100,
-                "duration": 0.4
+            "grab": {
+                "distance": 140,
+                "line_opacity": 1
             },
             "push": {
                 "particles_nb": 4

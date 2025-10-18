@@ -7,32 +7,110 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- The particles.js container will be placed here -->
     <div id="particles-js"></div>
+
     <header>
+        <a href="index.html" class="logo"><img src="assets/images/profile.jpg" alt="Yadav Sivakumar"></a>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="skills.html">Skills</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
-                <li><a href="certifications.html">Certifications</a></li>
             </ul>
         </nav>
-        <button id="dark-mode-toggle">Toggle Dark Mode</button>
+        <button id="dark-mode-toggle">Toggle Theme</button>
     </header>
+
     <main>
+        <!-- 
+          --- Home Section ---
+          * Description: The main landing section with a profile picture, title, and call-to-action.
+          * Animation: This section will fade in and slide up on page load.
+        -->
         <section id="home">
+            <img src="assets/images/profile.jpg" alt="Yadav Sivakumar" class="profile-pic">
             <h1>Yadav Sivakumar</h1>
             <p>BSc IT Graduate | Tech Support Professional</p>
-            <p>Welcome to my portfolio. Explore my projects and skills.</p>
-            <a href="download/resume.pdf" class="btn" download>Download CV</a>
+            <p>Welcome to my digital space. Explore my work and technical skills.</p>
+            <a href="download/Shiva__CV.pdf" class="btn btn-glow" download>Download CV</a>
+        </section>
+
+        <!-- 
+          --- Professional Summary ---
+          * Description: A brief summary of skills, experience, and career goals.
+          * Animation: This section will fade in on scroll.
+        -->
+        <section id="professional-summary">
+            <h2>Professional Summary</h2>
+            <p>
+                A dedicated BSc IT graduate with hands-on experience in technical support, passionate about solving complex problems and enhancing user experience. Proficient in front-end technologies including HTML, CSS, JavaScript, and React. My goal is to leverage my technical foundation and problem-solving skills to grow as a full-stack developer and contribute to innovative web projects.
+            </p>
+        </section>
+
+        <!-- 
+          --- Skills Section ---
+          * Description: A showcase of technical skills with icons and tooltips.
+          * Animation: Each skill card will lift and glow on hover.
+        -->
+        <section id="skills">
+            <h2>My Skills</h2>
+            <div class="skills-container">
+                <!-- Skill: HTML5 -->
+                <div class="skill-card">
+                    <img src="assets/icons/html5.svg" alt="HTML5 Icon">
+                    <span class="tooltip">HTML5</span>
+                </div>
+                <!-- Skill: CSS3 -->
+                <div class="skill-card">
+                    <img src="assets/icons/css3.svg" alt="CSS3 Icon">
+                    <span class="tooltip">CSS3</span>
+                </div>
+                <!-- Skill: JavaScript -->
+                <div class="skill-card">
+                    <img src="assets/icons/javascript.svg" alt="JavaScript Icon">
+                    <span class="tooltip">JavaScript</span>
+                </div>
+                <!-- Skill: React -->
+                <div class="skill-card">
+                    <img src="assets/icons/react.svg" alt="React Icon">
+                    <span class="tooltip">React</span>
+                </div>
+                <!-- Skill: Node.js -->
+                <div class="skill-card">
+                    <img src="assets/icons/nodejs.svg" alt="Node.js Icon">
+                    <span class="tooltip">Node.js</span>
+                </div>
+                <!-- Skill: Git -->
+                <div class="skill-card">
+                    <img src="assets/icons/git.svg" alt="Git Icon">
+                    <span class="tooltip">Git</span>
+                </div>
+            </div>
+        </section>
+        <section id="home-projects">
+            <h2>My Projects</h2>
+            <div class="project-card project-card-layout-2">
+                <img src="assets/images/portfolio.svg" alt="My Portfolio" class="project-card-image">
+                <div class="project-card-content">
+                    <h2>My Portfolio</h2>
+                    <p>This is my personal portfolio website, designed to showcase my skills and projects. It is built with HTML, CSS, and JavaScript, and features a responsive design, dark/light mode, and interactive elements. The source code is available on my GitHub.</p>
+                    <a href="projects.html">View Project</a>
+                </div>
+            </div>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2025 Yadav Sivakumar</p>
+        <p>&copy; 2025 Yadav Sivakumar. All Rights Reserved.</p>
     </footer>
+
+    <!-- 
+      --- Scripts ---
+      * particles.js: For the animated background.
+      * main.js: For scroll animations and other interactive features.
+    -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/main.js"></script>
 </body>

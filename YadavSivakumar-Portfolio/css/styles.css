@@ -1,110 +1,415 @@
-/* Basic Styles */
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+/* 
+  --- CSS Variables ---
+  * Description: Centralized color and font definitions for a consistent theme.
+  * Palette: A tech-themed blend of navy, cyan, and purple for a modern, clean look.
+*/
 :root {
-    --background-color-light: #f4f4f4;
-    --text-color-light: #333;
-    --background-color-dark: #333;
-    --text-color-dark: #f4f4f4;
+    --primary-bg: #0a0a23; /* Soft Navy */
+    --secondary-bg: #141435;
+    --accent-cyan: #00f7ff;
+    --accent-purple: #8a2be2;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0c0;
+    --section-bg: rgba(20, 20, 53, 0.7);
+    --heading-font: 'Montserrat', sans-serif;
+    --body-font: 'Poppins', sans-serif;
+    --glow-shadow: 0 0 15px var(--accent-cyan);
+    --glow-shadow-purple: 0 0 15px var(--accent-purple);
 }
 
+/* --- Light Mode Variables --- */
+.light-mode {
+    --primary-bg: #f0f0f0;
+    --secondary-bg: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #555555;
+    --section-bg: rgba(255, 255, 255, 0.8);
+    --accent-cyan: #007bff;
+    --accent-purple: #6f42c1;
+    --glow-shadow: none;
+    --glow-shadow-purple: none;
+}
+
+
+/* --- Basic Styles --- */
 body {
-    font-family: sans-serif;
+    font-family: var(--body-font);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--background-color-light);
-    color: var(--text-color-light);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background-color 0.5s, color 0.5s;
 }
 
-body.dark-mode {
-    --background-color-light: #333;
-    --text-color-light: #f4f4f4;
-    --background-color-dark: #f4f4f4;
-    --text-color-dark: #333;
-}
-
-/* Particles.js Container */
+/* 
+  --- Animated Background ---
+  * Description: The particles.js container is fixed to the background.
+  * Effect: A cool gradient that complements the particle animation.
+*/
 #particles-js {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     z-index: -1;
+    background-image: linear-gradient(45deg, var(--primary-bg), var(--secondary-bg), var(--primary-bg));
 }
 
-/* Header and Navigation */
+/* --- Header and Navigation --- */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: rgba(0,0,0,0.1);
+    padding: 1rem 3rem;
+    background-color: var(--section-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--accent-cyan);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    text-decoration: none;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-cyan);
+    transition: box-shadow 0.3s ease;
+}
+
+.logo img:hover {
+    box-shadow: var(--glow-shadow);
 }
 
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
 nav ul li {
-    display: inline-block;
     margin: 0 15px;
 }
 
 nav ul li a {
-    color: var(--text-color-light);
+    color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-weight: 600;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Main Content */
+/* 
+  --- Navigation Hover Animation ---
+  * Effect: Links glow with the accent color on hover.
+*/
+nav ul li a:hover {
+    color: var(--accent-cyan);
+    text-shadow: var(--glow-shadow);
+}
+
+/* --- Theme Toggle Button --- */
+#dark-mode-toggle {
+    background: transparent;
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#dark-mode-toggle:hover {
+    background-color: var(--accent-cyan);
+    color: var(--primary-bg);
+}
+
+
+/* --- Main Content & Sections --- */
 main {
-    padding: 20px;
+    padding: 2rem;
     text-align: center;
 }
 
 section {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.5s ease-out forwards;
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 2rem auto;
+    background: var(--section-bg);
+    border: 1px solid var(--accent-purple);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 25px rgba(138, 43, 226, 0.3);
+    opacity: 0; /* Initially hidden for scroll animations */
+    transform: translateY(50px); /* Start slightly lower */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Cards */
-.project-card, .skill-card, .testimonial-card, .certification-card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 20px 0;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+h1, h2 {
+    font-family: var(--heading-font);
+    color: var(--text-primary);
 }
 
-.project-card:hover, .skill-card:hover {
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transform: translateY(-5px);
+h1 {
+    font-size: 3.5rem;
+    text-shadow: var(--glow-shadow);
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--accent-cyan);
+    display: inline-block;
+    padding-bottom: 0.5rem;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* --- Profile Picture --- */
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 1rem auto;
+    border: 4px solid var(--accent-cyan);
+    box-shadow: var(--glow-shadow);
+}
+
+/* 
+  --- Buttons ---
+  * Description: Styling for all buttons, with a special glowing effect for the CV button.
+*/
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: transparent;
+    color: var(--accent-cyan);
+    text-decoration: none;
+    border: 2px solid var(--accent-cyan);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-cyan);
+    color: var(--primary-bg);
+    box-shadow: var(--glow-shadow);
+}
+
+/* 
+  --- Glowing CV Button Animation ---
+  * Effect: A subtle pulse and glow to draw attention.
+*/
+.btn-glow {
+    animation: pulse 2s infinite;
+    box-shadow: var(--glow-shadow);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 15px var(--accent-cyan);
+    }
+    50% {
+        box-shadow: 0 0 25px var(--accent-cyan);
+    }
+    100% {
+        box-shadow: 0 0 15px var(--accent-cyan);
     }
 }
 
-/* Responsive Design */
+/* 
+  --- Skills Section ---
+  * Description: A grid layout for skill icons with tooltips.
+*/
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.skill-card {
+    background: var(--section-bg);
+    border: 1px solid var(--accent-purple);
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 140px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    word-wrap: break-word; /* Prevents long words from overflowing */
+}
+
+/* Overriding default h2 styles for skill cards for better fit */
+.skill-card h2 {
+    font-size: 1.2rem; /* Smaller font size */
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    display: block;
+}
+
+/* 
+  --- Skill Card Hover Effect ---
+  * Effect: Lifts the card and adds a purple glow.
+*/
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--glow-shadow-purple);
+}
+
+.skill-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+.skill-card .tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--accent-cyan);
+    color: var(--primary-bg);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position the tooltip above the icon */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.skill-card:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 
+  --- Scroll Animations ---
+  * Description: Classes to control the visibility and transform of sections on scroll.
+  * 'visible' class is added by JavaScript when the element is in view.
+*/
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 
+  --- Contact Form ---
+  * Description: Styling for the new contact form section.
+*/
+.contact-form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--section-bg);
+    border: 1px solid var(--accent-purple);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: var(--body-font);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    box-shadow: var(--glow-shadow);
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form .btn {
+    align-self: center;
+    width: 200px;
+}
+
+/* --- Footer --- */
+footer {
+    padding: 2rem 0;
+    text-align: center;
+    background-color: var(--section-bg);
+    border-top: 1px solid var(--accent-cyan);
+}
+
+
+/* --- Responsive Design --- */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
+        padding: 1rem;
     }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 1rem;
+        text-align: center;
+    }
+
     nav ul li {
-        display: block;
-        margin: 10px 0;
+        margin: 0.5rem 0;
     }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 3rem 1rem;
+    }
+}
+/* --- Project Card Layout 2 --- */
+.project-card-layout-2 {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.project-card-image {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+}
+
+.project-card-content {
+    text-align: left;
 }
