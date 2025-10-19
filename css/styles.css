@@ -397,6 +397,14 @@ footer {
     section {
         padding: 3rem 1rem;
     }
+
+    .project-card-layout-2 {
+        flex-direction: column;
+    }
+
+    .project-card-content {
+        text-align: center;
+    }
 }
 /* --- Project Card Layout 2 --- */
 .project-card-layout-2 {
@@ -406,8 +414,9 @@ footer {
 }
 
 .project-card-image {
-    width: 100px; /* Adjust size as needed */
-    height: auto;
+    width: 100px;
+    height: 100px; /* Set an explicit height */
+    flex-shrink: 0; /* Prevent the image from shrinking */
 }
 
 .project-card-content {
