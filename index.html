@@ -3,123 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yadav Sivakumar - Portfolio</title>
+    <title>Shivakumar - Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
-    <!-- The particles.js container will be placed here -->
-    <div id="particles-js"></div>
-
     <header>
-        <a href="index.html" class="logo"><img src="assets/images/profile.jpg" alt="Yadav Sivakumar"></a>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="skills.html">Skills</a></li>
-            </ul>
+            <div class="logo" data-aos="fade-down">
+                <a href="#hero"><img src="assets/images/portfolio.svg" alt="Portfolio Logo" style="width: 40px; height: 40px;"></a>
+            </div>
+            <div class="nav-links" data-aos="fade-down" data-aos-delay="100">
+                <ol>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ol>
+            </div>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+            </div>
         </nav>
-        <button id="dark-mode-toggle">Toggle Theme</button>
     </header>
 
     <main>
-        <!-- 
-          --- Home Section ---
-          * Description: The main landing section with a profile picture, title, and call-to-action.
-          * Animation: This section will fade in and slide up on page load.
-        -->
-        <section id="home">
-            <img src="assets/images/profile.jpg" alt="Yadav Sivakumar" class="profile-pic">
-            <h1>Yadav Sivakumar</h1>
-            <p>BSc IT Graduate | Tech Support Professional</p>
-            <p>Welcome to my digital space. Explore my work and technical skills.</p>
-            <a href="download/Shiva__CV.pdf" class="btn btn-glow" download>Download CV</a>
+        <section id="hero">
+            <div class="hero-text" data-aos="fade-up">
+                <h1>Hi, my name is</h1>
+                <h2>Shivakumar.</h2>
+                <h3>Developer with a QA Mindset & a Passion for Automation.</h3>
+                <p>I’m a tech-driven developer with hands-on experience in QA, operations, and development. I enjoy building efficient, scalable solutions using JavaScript, Node.js, and Git. Currently, I’m focused on expanding my skills in automation and creating reliable, human-centered digital experiences.</p>
+                <a href="download/Shiva__CV.pdf" class="btn" download>Download CV</a>
+            </div>
+            <div class="hero-pic-container" data-aos="fade-up" data-aos-delay="200">
+                <img class="hero-pic" src="assets/images/profile.jpg" alt="A profile picture of Shivakumar">
+            </div>
         </section>
 
-        <!-- 
-          --- Professional Summary ---
-          * Description: A brief summary of skills, experience, and career goals.
-          * Animation: This section will fade in on scroll.
-        -->
-        <section id="professional-summary">
-            <h2>Professional Summary</h2>
-            <p>
-                A dedicated BSc IT graduate with hands-on experience in technical support, passionate about solving complex problems and enhancing user experience. Proficient in front-end technologies including HTML, CSS, JavaScript, and React. My goal is to leverage my technical foundation and problem-solving skills to grow as a full-stack developer and contribute to innovative web projects.
-            </p>
-        </section>
-
-        <!-- 
-          --- Skills Section ---
-          * Description: A showcase of technical skills with icons and tooltips.
-          * Animation: Each skill card will lift and glow on hover.
-        -->
-        <section id="skills">
-            <h2>My Skills</h2>
-            <div class="skills-container">
-                <!-- Skill: HTML5 -->
-                <div class="skill-card">
-                    <img src="assets/icons/html5.svg" alt="HTML5 Icon">
-                    <span class="tooltip">HTML5</span>
-                </div>
-                <!-- Skill: CSS3 -->
-                <div class="skill-card">
-                    <img src="assets/icons/css3.svg" alt="CSS3 Icon">
-                    <span class="tooltip">CSS3</span>
-                </div>
-                <!-- Skill: JavaScript -->
-                <div class="skill-card">
-                    <img src="assets/icons/javascript.svg" alt="JavaScript Icon">
-                    <span class="tooltip">JavaScript</span>
-                </div>
-                <!-- Skill: React -->
-                <div class="skill-card">
-                    <img src="assets/icons/react.svg" alt="React Icon">
-                    <span class="tooltip">React</span>
-                </div>
-                <!-- Skill: Node.js -->
-                <div class="skill-card">
-                    <img src="assets/icons/nodejs.svg" alt="Node.js Icon">
-                    <span class="tooltip">Node.js</span>
-                </div>
-                <!-- Skill: Git -->
-                <div class="skill-card">
-                    <img src="assets/icons/git.svg" alt="Git Icon">
-                    <span class="tooltip">Git</span>
+        <section id="about" data-aos="fade-up">
+            <h2 class="numbered-heading">About Me</h2>
+            <div class="inner">
+                <div class="about-text">
+                    <p>Currently a Technical Operations Executive at Turtlemint, my journey is focused on the intersection of development and operational excellence. With skills in JavaScript, Node.js, and API testing, I am actively expanding my expertise in automation and modern development tools. I am driven by a passion for solving complex problems, enhancing software quality, and building efficient, high-impact technology.</p>
                 </div>
             </div>
         </section>
-        <section id="home-projects">
-            <h2>My Projects</h2>
-            <div class="project-card project-card-layout-2">
-                <img src="assets/images/portfolio.svg" alt="My Portfolio" class="project-card-image">
-                <div class="project-card-content">
-                    <h2>My Portfolio</h2>
-                    <p>This is my personal portfolio website, designed to showcase my skills and projects. It is built with HTML, CSS, and JavaScript, and features a responsive design, dark/light mode, and interactive elements. The source code is available on my GitHub.</p>
+
+        <section id="experience" data-aos="fade-up">
+            <h2 class="numbered-heading">Where I’ve Worked</h2>
+            <div class="inner">
+                <div class="tab-list" role="tablist">
+                    <button class="tab-button active" id="tab-0" role="tab" aria-selected="true" aria-controls="panel-0" tabindex="0">Turtlemint</button>
+                    <button class="tab-button" id="tab-2" role="tab" aria-selected="false" aria-controls="panel-2" tabindex="-1">Datavista</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-panel active" id="panel-0" role="tabpanel" aria-labelledby="tab-0">
+                        <h3><span>Technical Operations Executive</span><span class="company"> @ <a href="#">Turtlemint</a></span></h3>
+                        <p>Dec 2024 – Present</p>
+                        <ul>
+                            <li>Streamlined backend operations and enhanced internal tools, leading to a 15% improvement in operational efficiency.</li>
+                            <li>Resolved complex technical issues, ensuring 99.9% uptime and data accuracy across all platforms.</li>
+                            <li>Awarded the Operations Excellence Award for outstanding contributions to team productivity and system stability.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2">
+                        <h3><span>Technical Support Intern</span><span class="company"> @ <a href="#">Datavista Solutions</a></span></h3>
+                        <p>June 2024 - Sep 2024</p>
+                        <ul>
+                            <li>Troubleshot and resolved technical issues for educational software, improving system performance and user satisfaction.</li>
+                            <li>Collaborated with the development team to identify and escalate bugs, contributing to a 10% reduction in recurring issues.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" data-aos="fade-up">
+            <h2 class="numbered-heading">Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>A responsive personal portfolio designed to showcase my skills, projects, and experience. Built with HTML, CSS, and JavaScript, it features a clean, modern design with a dark/light mode toggle and smooth scrolling. The source code is publicly available on my GitHub.</p>
                     <a href="https://github.com/shivakumar260503/myportfolio" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
                 </div>
-            </div>
-            <div class="project-card project-card-layout-2">
-                <img src="assets/images/qkart.svg" alt="QKart Testing Project" class="project-card-image">
-                <div class="project-card-content">
-                    <h2>QKart Web Testing Project</h2>
-                    <p>A manual QA portfolio project demonstrating foundational skills in software testing. Tested core e-commerce functionalities like Login, Add to Cart, Checkout, and Logout. Includes test plan, test cases, bug reports, RTM, and execution report. Showcases attention to detail, defect management, and a commitment to learning QA and automation practices.</p>
+                <div class="project-card">
+                    <h3>QKart Web Testing Project</h3>
+                    <p>A comprehensive manual QA project focused on a testing the core functionalities of the QKart e-commerce platform. This project includes a detailed test plan, extensive test cases, and thorough bug reports, demonstrating a strong foundation in software testing and quality assurance.</p>
                     <a href="https://shivakumar260503.github.io/QKart-Web-Testing-Project/" class="btn" target="_blank" rel="noopener noreferrer">View Project</a>
+                    <a href="https://github.com/shivakumar260503/QKart-Web-Testing-Project" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
                 </div>
             </div>
+        </section>
+
+        <section id="contact" data-aos="fade-up">
+            <h2 class="numbered-heading">What's Next?</h2>
+            <h2>Get In Touch</h2>
+            <p>I’m always open to new opportunities and collaborations. Whether you have a project in mind, a question, or just want to connect, feel free to reach out. I’ll do my best to get back to you as soon as possible!</p>
+            <a href="mailto:sky260503@gmail.com" class="btn">Say Hello</a>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Yadav Sivakumar. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/Shivakumar260503" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+            <a href="https://www.linkedin.com/in/sivakumar-yadav-9a6809312/" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><title>LinkedIn</title><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+        </div>
+        <div class="credit">
+            <p>Designed & Built by Shivakumar</p>
+        </div>
     </footer>
 
-    <!-- 
-      --- Scripts ---
-      * particles.js: For the animated background.
-      * main.js: For scroll animations and other interactive features.
-    -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
     <script src="js/main.js"></script>
 </body>
 </html>

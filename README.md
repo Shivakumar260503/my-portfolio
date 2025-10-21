@@ -1,43 +1,35 @@
-# YadavSivakumar-Portfolio
+# Shivakumar's Personal Portfolio
 
-This is a personal portfolio website for Yadav Sivakumar, created using HTML, CSS, and JavaScript.
+This is the repository for my personal portfolio website, designed to showcase my skills, experience, and projects. Built with HTML, CSS, and JavaScript, it features a clean, modern design with a light/dark mode toggle and smooth animations.
+
+## Live Demo
+
+You can view the live version of my portfolio here: [https://shivakumar260503.github.io/myportfolio/](https://shivakumar260503.github.io/myportfolio/)
 
 ## Features
 
-- Animated tech background using `particles.js`
-- Section fade-in/slide-up animations
-- Smooth scrolling navigation
-- Skills icons for HTML, CSS, JS
-- Hover effects on buttons and project cards
-- CV download button
-- Responsive design
-- Dark/light mode toggle
+-   **Responsive Design:** Looks great on all devices, from mobile phones to desktops.
+-   **Light/Dark Mode:** Switch between light and dark themes for your viewing preference.
+-   **Interactive UI:** Smooth scrolling, hover effects, and animations using AOS (Animate On Scroll) library.
+-   **Dynamic Experience Section:** Tabbed interface to showcase my work history.
+-   **Project Showcase:** A grid layout to display my projects with links to GitHub and live demos.
+-   **CV Download:** A direct link to download my CV.
 
-## Deployment to GitHub Pages
+## Built With
 
-1. **Initialize a Git repository:**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   ```
+-   **HTML5**
+-   **CSS3**
+-   **JavaScript**
+-   **AOS (Animate On Scroll)** - For scroll animations.
 
-2. **Create a new repository on GitHub.**
+## Deployment
 
-3. **Link the local repository to the GitHub repository:**
-   ```bash
-   git remote add origin <your-repository-url>
-   git branch -M main
-   git push -u origin main
-   ```
+This portfolio is deployed using GitHub Pages. The `main` branch is automatically deployed.
 
-4. **Enable GitHub Pages in your repository settings:**
-   - Go to your repository on GitHub.
-   - Click on the "Settings" tab.
-   - In the left sidebar, click on "Pages".
-   - Under "Build and deployment", select "Deploy from a branch" and choose the `main` branch (or whichever branch you are using) and the `/root` directory.
-   - Click "Save".
+## Contact
 
-Your portfolio will be live at `https://<your-username>.github.io/<your-repository-name>/` in a few minutes.
+I’m always open to new opportunities and collaborations. Feel free to get in touch!
 
-**Note:** This project uses `particles.js` from a CDN, so an internet connection is required for the animated background to work.
+-   **Email:** [sky260503@gmail.com](mailto:sky260503@gmail.com)
+-   **LinkedIn:** [https://www.linkedin.com/in/sivakumar-yadav-9a6809312/](https://www.linkedin.com/in/sivakumar-yadav-9a6809312/)
+-   **GitHub:** [https://github.com/Shivakumar260503](https://github.com/Shivakumar260503)

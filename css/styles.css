@@ -1,424 +1,532 @@
-/* --- Google Fonts Import --- */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap');
 
-/* 
-  --- CSS Variables ---
-  * Description: Centralized color and font definitions for a consistent theme.
-  * Palette: A tech-themed blend of navy, cyan, and purple for a modern, clean look.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 :root {
-    --primary-bg: #0a0a23; /* Soft Navy */
-    --secondary-bg: #141435;
-    --accent-cyan: #00f7ff;
-    --accent-purple: #8a2be2;
-    --text-primary: #e0e0e0;
-    --text-secondary: #a0a0c0;
-    --section-bg: rgba(20, 20, 53, 0.7);
-    --heading-font: 'Montserrat', sans-serif;
-    --body-font: 'Poppins', sans-serif;
-    --glow-shadow: 0 0 15px var(--accent-cyan);
-    --glow-shadow-purple: 0 0 15px var(--accent-purple);
+    --primary-bg-color: #0a192f;
+    --secondary-bg-color: #112240;
+    --text-color: #ccd6f6;
+    --accent-color: #64ffda;
+    --light-text-color: #8892b0;
+    --card-bg-color: #112240;
+    --header-bg-color: rgba(10, 25, 47, 0.85);
+    --font-sans: 'Poppins', sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    --fz-xxl: 2.5rem;
+    --fz-xl: 2rem;
+    --fz-lg: 1.5rem;
+    --fz-md: 1.2rem;
+    --fz-sm: 0.9rem;
+    --border-radius: 4px;
+    --nav-height: 100px;
+    --nav-scroll-height: 70px;
+    --tab-height: 42px;
+    --tab-width: 120px;
+    --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-/* --- Light Mode Variables --- */
-.light-mode {
-    --primary-bg: #f0f0f0;
-    --secondary-bg: #ffffff;
-    --text-primary: #333333;
-    --text-secondary: #555555;
-    --section-bg: rgba(255, 255, 255, 0.8);
-    --accent-cyan: #007bff;
-    --accent-purple: #6f42c1;
-    --glow-shadow: none;
-    --glow-shadow-purple: none;
+[data-theme='light'] {
+    --primary-bg-color: #f0f2f5;
+    --secondary-bg-color: #ffffff;
+    --text-color: #333333;
+    --accent-color: #00bfa5;
+    --light-text-color: #555555;
+    --card-bg-color: #ffffff;
+    --header-bg-color: rgba(240, 242, 245, 0.85);
 }
 
+[data-theme='light'] #hero h1 {
+    color: var(--accent-color);
+}
 
-/* --- Basic Styles --- */
+[data-theme='light'] .btn:hover,
+[data-theme='light'] .btn:focus {
+    background-color: rgba(0, 191, 165, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: var(--body-font);
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    background-color: var(--primary-bg);
-    color: var(--text-primary);
-    overflow-x: hidden;
-    transition: background-color 0.5s, color 0.5s;
-}
-
-/* 
-  --- Animated Background ---
-  * Description: The particles.js container is fixed to the background.
-  * Effect: A cool gradient that complements the particle animation.
-*/
-#particles-js {
-    position: fixed;
     width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image: linear-gradient(45deg, var(--primary-bg), var(--secondary-bg), var(--primary-bg));
+    min-height: 100%;
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    font-size: var(--fz-md);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Header and Navigation --- */
+main {
+    padding: 0 150px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 150px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    color: var(--text-color);
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: var(--fz-xxl);
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    color: inherit;
+    position: relative;
+    transition: var(--transition);
+}
+
+a:hover,
+a:focus {
+    color: var(--accent-color);
+}
+
+.btn {
+    color: var(--accent-color);
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1rem;
+    font-size: var(--fz-sm);
+    font-family: var(--font-mono);
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: rgba(100, 255, 218, 0.1);
+    outline: none;
+}
+
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 3rem;
-    background-color: var(--section-bg);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--accent-cyan);
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 1000;
+    z-index: 11;
+    padding: 0px 50px;
+    width: 100%;
+    height: var(--nav-height);
+    background-color: var(--header-bg-color);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    color: var(--text-color);
+    z-index: 12;
 }
 
 .logo {
-    text-decoration: none;
-}
-
-.logo img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid var(--accent-cyan);
-    transition: box-shadow 0.3s ease;
-}
-
-.logo img:hover {
-    box-shadow: var(--glow-shadow);
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
+    align-items: center;
 }
 
-nav ul li {
+.nav-links {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links ol {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-links ol li {
     margin: 0 15px;
+    position: relative;
+    font-size: var(--fz-sm);
 }
 
-nav ul li a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+.nav-links ol li a {
+    padding: 10px;
 }
 
-/* 
-  --- Navigation Hover Animation ---
-  * Effect: Links glow with the accent color on hover.
-*/
-nav ul li a:hover {
-    color: var(--accent-cyan);
-    text-shadow: var(--glow-shadow);
-}
-
-/* --- Theme Toggle Button --- */
-#dark-mode-toggle {
-    background: transparent;
-    border: 1px solid var(--accent-cyan);
-    color: var(--accent-cyan);
-    padding: 8px 12px;
-    border-radius: 5px;
+.hamburger {
+    display: none;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    z-index: 15;
 }
 
-#dark-mode-toggle:hover {
-    background-color: var(--accent-cyan);
-    color: var(--primary-bg);
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease-in-out;
 }
 
-
-/* --- Main Content & Sections --- */
-main {
-    padding: 2rem;
-    text-align: center;
+/* Hero Section */
+#hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    gap: 50px;
 }
 
-section {
-    padding: 5rem 2rem;
-    max-width: 1100px;
-    margin: 2rem auto;
-    background: var(--section-bg);
-    border: 1px solid var(--accent-purple);
-    border-radius: 15px;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 0 25px rgba(138, 43, 226, 0.3);
-    opacity: 0; /* Initially hidden for scroll animations */
-    transform: translateY(50px); /* Start slightly lower */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+.hero-text {
+    flex: 3;
 }
 
-h1, h2 {
-    font-family: var(--heading-font);
-    color: var(--text-primary);
+#hero h1 {
+    margin: 0 0 30px 4px;
+    color: var(--accent-color);
+    font-family: var(--font-mono);
+    font-size: var(--fz-md);
+    font-weight: 400;
 }
 
-h1 {
-    font-size: 3.5rem;
-    text-shadow: var(--glow-shadow);
+#hero h2 {
+    font-size: clamp(40px, 8vw, 80px);
+    line-height: 1.1;
+    margin: 0;
+    font-weight: 700;
 }
 
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid var(--accent-cyan);
-    display: inline-block;
-    padding-bottom: 0.5rem;
+#hero h3 {
+    font-size: clamp(40px, 8vw, 60px);
+    line-height: 0.9;
+    color: var(--light-text-color);
+    font-weight: 700;
 }
 
-p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
+#hero p {
+    margin: 20px 0 0;
+    max-width: 540px;
 }
 
-/* --- Profile Picture --- */
-.profile-pic {
-    width: 180px;
-    height: 180px;
+#hero .btn {
+    margin-top: 50px;
+}
+
+/* About Section */
+#about .inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    margin: 0 0 15px;
+}
+
+.hero-pic-container {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-pic {
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 1rem auto;
-    border: 4px solid var(--accent-cyan);
-    box-shadow: var(--glow-shadow);
+    max-width: 100%;
+    border: 3px solid var(--accent-color);
 }
 
-/* 
-  --- Buttons ---
-  * Description: Styling for all buttons, with a special glowing effect for the CV button.
-*/
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background-color: transparent;
-    color: var(--accent-cyan);
-    text-decoration: none;
-    border: 2px solid var(--accent-cyan);
-    border-radius: 8px;
-    font-weight: 600;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: var(--accent-cyan);
-    color: var(--primary-bg);
-    box-shadow: var(--glow-shadow);
-}
-
-/* 
-  --- Glowing CV Button Animation ---
-  * Effect: A subtle pulse and glow to draw attention.
-*/
-.btn-glow {
-    animation: pulse 2s infinite;
-    box-shadow: var(--glow-shadow);
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 15px var(--accent-cyan);
-    }
-    50% {
-        box-shadow: 0 0 25px var(--accent-cyan);
-    }
-    100% {
-        box-shadow: 0 0 15px var(--accent-cyan);
-    }
-}
-
-/* 
-  --- Skills Section ---
-  * Description: A grid layout for skill icons with tooltips.
-*/
-.skills-container {
+/* Experience Section */
+#experience .inner {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem 0;
 }
 
-.skill-card {
-    background: var(--section-bg);
-    border: 1px solid var(--accent-purple);
-    border-radius: 10px;
-    padding: 1.5rem;
-    width: 140px;
-    text-align: center;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    word-wrap: break-word; /* Prevents long words from overflowing */
+.tab-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: var(--tab-width);
 }
 
-/* Overriding default h2 styles for skill cards for better fit */
-.skill-card h2 {
-    font-size: 1.2rem; /* Smaller font size */
-    margin-bottom: 0;
-    border-bottom: none;
-    padding-bottom: 0;
+.tab-button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: var(--tab-height);
+    padding: 0 20px;
+    background-color: transparent;
+    border: 0;
+    border-left: 2px solid var(--light-text-color);
+    color: var(--light-text-color);
+    font-family: var(--font-mono);
+    font-size: var(--fz-sm);
+    text-align: left;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tab-button:hover,
+.tab-button.active {
+    color: var(--accent-color);
+    background-color: var(--secondary-bg-color);
+}
+
+.tab-content {
+    width: 100%;
+    margin-left: 20px;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
     display: block;
 }
 
-/* 
-  --- Skill Card Hover Effect ---
-  * Effect: Lifts the card and adds a purple glow.
-*/
-.skill-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--glow-shadow-purple);
+.tab-panel h3 {
+    font-size: var(--fz-lg);
+    font-weight: 500;
+    margin-bottom: 5px;
 }
 
-.skill-card img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 1rem;
+.tab-panel .company {
+    color: var(--accent-color);
 }
 
-.skill-card .tooltip {
-    visibility: hidden;
-    width: 120px;
-    background-color: var(--accent-cyan);
-    color: var(--primary-bg);
+.tab-panel p {
+    font-size: var(--fz-sm);
+    margin-bottom: 25px;
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    position: relative;
+}
+
+.project-card {
+    background-color: var(--card-bg-color);
+    padding: 2rem 1.75rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+}
+
+.project-card h3 {
+    font-size: var(--fz-xl);
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: var(--fz-sm);
+}
+
+/* Contact Section */
+#contact {
     text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%; /* Position the tooltip above the icon */
-    left: 50%;
-    margin-left: -60px;
-    opacity: 0;
-    transition: opacity 0.3s;
 }
 
-.skill-card:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
+#contact h2 {
+    font-size: 60px;
+    margin-bottom: 20px;
 }
 
-/* 
-  --- Scroll Animations ---
-  * Description: Classes to control the visibility and transform of sections on scroll.
-  * 'visible' class is added by JavaScript when the element is in view.
-*/
-.visible {
-    opacity: 1;
-    transform: translateY(0);
+#contact p {
+    max-width: 600px;
+    margin: 0 auto 50px;
 }
 
-/* 
-  --- Contact Form ---
-  * Description: Styling for the new contact form section.
-*/
-.contact-form {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.form-group {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 1rem;
-    background-color: var(--section-bg);
-    border: 1px solid var(--accent-purple);
-    border-radius: 8px;
-    color: var(--text-primary);
-    font-family: var(--body-font);
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--accent-cyan);
-    box-shadow: var(--glow-shadow);
-}
-
-.contact-form textarea {
-    height: 150px;
-    resize: vertical;
-}
-
-.contact-form .btn {
-    align-self: center;
-    width: 200px;
-}
-
-/* --- Footer --- */
+/* Footer */
 footer {
-    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    min-height: 70px;
+    padding: 15px;
     text-align: center;
-    background-color: var(--section-bg);
-    border-top: 1px solid var(--accent-cyan);
 }
 
+.social-links {
+    display: flex;
+    margin-bottom: 10px;
+}
 
-/* --- Responsive Design --- */
+.social-links a {
+    padding: 10px;
+}
+
+.social-links svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+    main {
+        padding: 0 100px;
+    }
+}
+
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 1rem;
+    main {
+        padding: 0 50px;
     }
 
-    nav ul {
+    #hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding-top: 100px; /* Add padding to avoid overlap with header */
+    }
+
+    .hero-pic {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 30px;
+    }
+
+    #hero h2 {
+        font-size: 60px;
+    }
+
+    #hero h3 {
+        font-size: 50px;
+    }
+
+    #about .inner {
         flex-direction: column;
-        margin-top: 1rem;
+        align-items: center; /* Center the content */
         text-align: center;
     }
 
-    nav ul li {
-        margin: 0.5rem 0;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    section {
-        padding: 3rem 1rem;
-    }
-
-    .project-card-layout-2 {
+    #experience .inner {
         flex-direction: column;
     }
 
-    .project-card-content {
-        text-align: center;
+    .tab-list {
+        display: flex;
+        overflow-x: auto;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .tab-button {
+        border-left: 0;
+        border-bottom: 2px solid var(--light-text-color);
+        min-width: var(--tab-width);
     }
 }
-/* --- Project Card Layout 2 --- */
-.project-card-layout-2 {
+
+@media (max-width: 480px) {
+    main {
+        padding: 0 25px;
+    }
+
+    #hero h2 {
+        font-size: 40px;
+    }
+
+    #hero h3 {
+        font-size: 30px;
+    }
+}
+
+/* Theme Switch */
+.theme-switch-wrapper {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    margin-right: 80px;
 }
 
-.project-card-image {
-    width: 100px;
-    height: 100px; /* Set an explicit height */
-    flex-shrink: 0; /* Prevent the image from shrinking */
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
 }
 
-.project-card-content {
-    text-align: left;
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }
